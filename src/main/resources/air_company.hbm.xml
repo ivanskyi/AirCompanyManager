@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ivanskiy.demo.domain.AirCompany" table="air_company">
+        <meta attribute="class-description">
+            This class contains developer's detail.
+        </meta>
+        <id name="ID" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="name" type="string"/>
+        <property name="companyType" column="company_type" type="string"/>
+        <property name="foundedAt" column="founded_at" type="int"/>
+    </class>
+
+
+</hibernate-mapping>
