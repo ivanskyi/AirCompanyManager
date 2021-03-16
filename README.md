@@ -1,23 +1,25 @@
 # Java Air Company Manager
 
 ## Overview
-This project contains REST application that allows management information about air company, airplane, flight.
+This project contains REST application that allows management air company, airplane, flight information.
 
 ## Guidelines
 To run this application you must do the next steps:
 
-1. Clone this repository or download docker image.
-   Link to docker image with the application:
+1. Clone this repository.
+   
+   ```
+   https://github.com/olehivanskiy/AirCompanyManager
+   ```   
 
 2. Except for it, you must get MySQL docker image. This image has some test data.
    To create a connection with the application and MySQl image. We must start the container, but switch to another port. Below is a command for doing it.
    Docker command to pull and start MySQL container:
-   docker run -it --name myLibrary -p 3001:8087 olehivanskyi/library:v1.0
-
+   ```
+   docker run -v mysql-data:/var/lib/mysql -d  -p 3009:3306 --name air_manager_db  olehivanskyi/air_manager_database
+   ```
 
 3. After done all the above step,  we can test use some rest functionals;
-
-
 
 ## Information about functional
 
@@ -129,4 +131,20 @@ Request param: non
 ```
 
 # Hints
-Symbol * before URL means our application address.
+Symbol ```*``` before URL means our application address.
+- Port for connection with application:
+```
+host:8075
+```
+
+- Port for connection with database:
+```
+host:3009
+```
+- Database access info:
+```
+user:root
+password:pass
+```
+
+

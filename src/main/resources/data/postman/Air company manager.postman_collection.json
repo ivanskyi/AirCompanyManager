@@ -23,7 +23,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8075/company/add",
+							"raw": "http://127.0.0.1:8075/company/create",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -34,7 +34,7 @@
 							"port": "8075",
 							"path": [
 								"company",
-								"add"
+								"create"
 							]
 						}
 					},
@@ -79,7 +79,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8075/company/getById/1",
+							"raw": "http://127.0.0.1:8075/company/getById/11",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -91,7 +91,7 @@
 							"path": [
 								"company",
 								"getById",
-								"1"
+								"11"
 							]
 						}
 					},
@@ -215,7 +215,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8075/airplane/changeOwner/52/3",
+							"raw": "http://127.0.0.1:8075/airplane/changeOwner/1/3",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -227,7 +227,7 @@
 							"path": [
 								"airplane",
 								"changeOwner",
-								"52",
+								"1",
 								"3"
 							]
 						},
@@ -298,7 +298,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8075/flight/getAllByStatusCodeAndCompanyName?status=active&companyName=Ukraine AIRLINES",
+							"raw": "http://127.0.0.1:8075/flight/getAllByStatusCodeAndCompanyName?status=active&companyName=Emirates",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -318,7 +318,7 @@
 								},
 								{
 									"key": "companyName",
-									"value": "Ukraine AIRLINES"
+									"value": "Emirates"
 								}
 							]
 						}
