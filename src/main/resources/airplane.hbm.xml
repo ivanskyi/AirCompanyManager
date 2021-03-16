@@ -6,7 +6,7 @@
 <hibernate-mapping>
     <class name="com.ivanskiy.demo.domain.Airplane" table="airplane">
         <meta attribute="class-description">
-            This class contains developer's detail.
+            This class contains airplane information.
         </meta>
         <id name="ID" type="int" column="id">
             <generator class="native"/>
@@ -20,6 +20,4 @@
         <property name="type" column="type" type="string"/>
         <property name="createdAt" column="created_at" type="string"/>
     </class>
-
-
 </hibernate-mapping>

@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "bf163f16-5005-4d19-8c4f-a04079dc90f5",
+		"name": "Air company manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "To air company controller",
+			"item": [
+				{
+					"name": "Create air company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Polan Airlines\",\n    \"companyType\": \"private\",\n    \"foundedAt\": \"Petrom\"\n}\n\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8075/company/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"company",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete air company by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8075/company/deleteById/11",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"company",
+								"deleteById",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get air company by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8075/company/getById/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"company",
+								"getById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update some air company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Moldova Airlines\",\n    \"companyType\": \"private\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8075/company/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"company",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all air company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8075/company/getAll",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"company",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "To airplane controller",
+			"item": [
+				{
+					"name": "Create airplane",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Airbus A380-800\",\n\"factorySerialNumber\": 7453,\n\"airCompanyId\": 1,\n\"numberOfFlights\": 3,\n\"flightDistance\": 321,\n\"fuelCapacity\": 541,\n\"type\": \"private\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8075/airplane/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"airplane",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change airplane company owner ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8075/airplane/changeOwner/52/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"airplane",
+								"changeOwner",
+								"52",
+								"3"
+							]
+						},
+						"description": "/airplaneName/newCompanyOwnerName"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "To flight controller",
+			"item": [
+				{
+					"name": "Create Flight",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n    \"airCompanyId\": 1,\n    \"airplaneId\": 1,\n    \"departureCountry\": \"Ukraine\",\n    \"destinationCountry\": \"UK\",\n    \"distance\": 1787,\n    \"estimatedFlightTime\": \"160\",\n    \"endedAt\": \"2021-03-15 13:00:00\",\n    \"delayStartedAt\": \"2\",\n    \"createdAt\": \"2021-03-13 02:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8075/flight/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"flight",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by status code and company name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8075/flight/getAllByStatusCodeAndCompanyName?status=active&companyName=Ukraine AIRLINES",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"flight",
+								"getAllByStatusCodeAndCompanyName"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "active"
+								},
+								{
+									"key": "companyName",
+									"value": "Ukraine AIRLINES"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all flights that lasts over 24 hours",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8075/flight/getAllThatFlyingOver24Hours",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"flight",
+								"getAllThatFlyingOver24Hours"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get those who are late",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8075/flight/activeWhichLate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"flight",
+								"activeWhichLate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change flight status ",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"flightId\": 35,\n    \"newStatusCode\": \"ACTIVE\",\n     \"date\": \"2021-03-15 13:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8075/flight/changeStatusCode?flightId=1&newStatusCode=ACTIVE&date=2021-03-15 13:00:00",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8075",
+							"path": [
+								"flight",
+								"changeStatusCode"
+							],
+							"query": [
+								{
+									"key": "flightId",
+									"value": "1"
+								},
+								{
+									"key": "newStatusCode",
+									"value": "ACTIVE"
+								},
+								{
+									"key": "date",
+									"value": "2021-03-15 13:00:00"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

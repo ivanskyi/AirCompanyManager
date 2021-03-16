@@ -5,16 +5,12 @@
 
 <hibernate-mapping>
     <class name="com.ivanskiy.demo.domain.AirCompany" table="air_company">
-        <meta attribute="class-description">
-            This class contains developer's detail.
-        </meta>
+        <meta attribute="class-description"> This class contains air company information.</meta>
         <id name="ID" type="int" column="id">
             <generator class="native"/>
         </id>
         <property name="name" column="name" type="string"/>
         <property name="companyType" column="company_type" type="string"/>
-        <property name="foundedAt" column="founded_at" type="int"/>
+        <property name="foundedAt" column="founded_at" type="string"/>
     </class>
-
-
 </hibernate-mapping>

@@ -5,8 +5,9 @@ import javax.persistence.*;
 @Entity
 @Table(name="flight")
 public class Flight {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
     @Column(name="flight_status")

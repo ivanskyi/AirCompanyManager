@@ -1,0 +1,11 @@
+INSERT INTO air_manager.air_company (id, name, company_type, founded_at) VALUES (1, 'MOLDOVA AIRLINES', 'private', '2016-02-1 03:00:00');
+INSERT INTO air_manager.air_company (id, name, company_type, founded_at) VALUES (2, 'Singapore Airlines', 'private', '2001-03-09 12:00:00');
+INSERT INTO air_manager.air_company (id, name, company_type, founded_at) VALUES (3, 'ANA All Nippon AirWays', 'private', '2003-08-15 09:00:00');
+INSERT INTO air_manager.air_company (id, name, company_type, founded_at) VALUES (4, 'Cathay Pacific Airways', 'private', '2021-03-15 13:00:00');
+INSERT INTO air_manager.air_company (id, name, company_type, founded_at) VALUES (5, 'Emirates', 'private', '2016-06-07 23:00:00');
+INSERT INTO air_manager.air_company (id, name, company_type, founded_at) VALUES (6, 'EVA Air', 'private', '2005-01-12 21:00:00');
+INSERT INTO air_manager.air_company (id, name, company_type, founded_at) VALUES (7, 'Hainan Airlines', 'private', '2003-04-04 17:00:00');
+INSERT INTO air_manager.air_company (id, name, company_type, founded_at) VALUES (8, 'Qantas Airways', 'private', '2020-07-17 13:00:00');
+INSERT INTO air_manager.air_company (id, name, company_type, founded_at) VALUES (9, 'Lufthansa', 'private', '2021-03-01 16:00:00');
+INSERT INTO air_manager.air_company (id, name, company_type, founded_at) VALUES (10, 'Thai Airways', 'private', '2007-04-28 22:00:00');
+INSERT INTO air_manager.air_company (id, name, company_type, founded_at) VALUES (11, 'POLAND AIRLINES', 'private', '2018-05-21 10:00:00');

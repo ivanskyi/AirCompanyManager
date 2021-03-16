@@ -8,5 +8,4 @@ import java.util.List;
 @Repository
 public interface FlightRepository extends JpaRepository<Flight,Integer> {
     List<Flight> findFlightsByFlightStatus(String status);
-    Flight findFlightByID(int id);
 }

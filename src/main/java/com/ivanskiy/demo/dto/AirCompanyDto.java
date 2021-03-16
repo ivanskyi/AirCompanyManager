@@ -1,6 +1,7 @@
 package com.ivanskiy.demo.dto;
 
 public class AirCompanyDto {
+
     private Integer ID;
     private String name;
     private String companyType;

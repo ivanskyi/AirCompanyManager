@@ -13,20 +13,21 @@ import java.util.List;
 @Service
 public class AirCompanyService {
 
+    private final TimeManager timeManager;
     private final AirCompanyRepository airCompanyRepository;
 
-    public AirCompanyService(AirCompanyRepository airCompanyRepository) {
+    public AirCompanyService(AirCompanyRepository airCompanyRepository, TimeManager timeManager) {
+        this.timeManager = timeManager;
         this.airCompanyRepository = airCompanyRepository;
     }
 
-    public void addCompany(AirCompanyDto airCompanyDto) {
+    public void createCompany(AirCompanyDto airCompanyDto) {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        AirCompany airCompany = new AirCompany();
-        airCompany.setName(airCompanyDto.getName().toUpperCase());
-        airCompany.setCompanyType(airCompanyDto.getCompanyType());
-        airCompany.setFoundedAt(airCompanyDto.getFoundedAt());
+        String foundedAt = timeManager.getCurrentTimeinString();
+        AirCompany airCompany = new AirCompany(airCompanyDto.getName().toUpperCase(), airCompanyDto.getCompanyType(),
+                foundedAt);
         session.save(airCompany);
         transaction.commit();
         session.close();
@@ -85,5 +86,3 @@ public class AirCompanyService {
         return airCompanies;
     }
 }
-
-

@@ -1,7 +1,8 @@
 package com.ivanskiy.demo.dto;
 
 public class FlightDto {
-    private Integer ID;
+
+    private int ID;
     private String flightStatus;
     private int airCompanyId;
     private int airplaneId;
@@ -16,9 +17,11 @@ public class FlightDto {
     public FlightDto() {
     }
 
-    public FlightDto(String flightStatus, int airCompanyId, int airplaneId, String departureCountry,
-                     String destinationCountry, int distance, int estimatedFlightTime, String endedAt,
+    public FlightDto(int ID, String flightStatus, int airCompanyId, int airplaneId,
+                     String departureCountry, String destinationCountry,
+                     int distance, int estimatedFlightTime, String endedAt,
                      String delayStartedAt, String createdAt) {
+        this.ID = ID;
         this.flightStatus = flightStatus;
         this.airCompanyId = airCompanyId;
         this.airplaneId = airplaneId;
@@ -31,11 +34,11 @@ public class FlightDto {
         this.createdAt = createdAt;
     }
 
-    public Integer getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(Integer ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 

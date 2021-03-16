@@ -9,15 +9,16 @@ import java.util.List;
 @RestController
 @RequestMapping("flight")
 public class FlightController {
-    FlightService flightService;
+
+    private final FlightService flightService;
 
     public FlightController(FlightService flightService) {
         this.flightService = flightService;
     }
 
-    @PostMapping("/add")
-    public void addComany(@RequestBody FlightDto flightDto) {
-        flightService.addFlight(flightDto);
+    @PostMapping("/create")
+    public void createComany(@RequestBody FlightDto flightDto) {
+        flightService.createFlight(flightDto);
     }
 
     @GetMapping("getAllByStatusCodeAndCompanyName")
@@ -26,16 +27,16 @@ public class FlightController {
          return flightService.getAllFlightByStatusCodeAndCompany(status, companyName);
     }
 
-    @GetMapping("getAllThatFlyingOverOneDay")
+    @GetMapping("getAllThatFlyingOver24Hours")
     @ResponseBody
-    public List<Flight> getAllFlightByStatusCodeAndCompanyName() {
+    public List<Flight> getAllThatFlyingOver24Hours() {
         return flightService.getAllFlightsThatFlyingLastsOver24Hours();
     }
 
-    @GetMapping("getCompletedWhichArrivedLate")
+    @GetMapping("completeWhichLate")
     @ResponseBody
-    public List<Flight> getCompletedWhichArrivedLate() {
-        return flightService.getCompletedWhichArrivedLate();
+    public List<Flight> getCompleteFlightWhichLate() {
+        return flightService.getCompleteFlightWhichLate();
     }
 
     @GetMapping("changeStatusCode")

@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class Airplane {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long ID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer ID;
 
     @Column(name="name")
     private String name;
@@ -49,11 +49,11 @@ public class Airplane {
         this.createdAt = createdAt;
     }
 
-    public long getID() {
+    public Integer getID() {
         return ID;
     }
 
-    public void setID(long ID) {
+    public void setID(Integer ID) {
         this.ID = ID;
     }
 

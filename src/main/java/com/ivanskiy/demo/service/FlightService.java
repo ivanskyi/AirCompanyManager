@@ -15,9 +15,10 @@ import java.util.List;
 
 @Service
 public class FlightService {
-    FlightRepository flightRepository;
-    AirCompanyService airCompanyService;
-    TimeManager timeManager;
+
+    private final FlightRepository flightRepository;
+    private final AirCompanyService airCompanyService;
+    private final TimeManager timeManager;
 
     public FlightService(FlightRepository flightRepository, AirCompanyService airCompanyService,
                          TimeManager timeManager) {
@@ -26,7 +27,7 @@ public class FlightService {
         this.timeManager = timeManager;
     }
 
-    public void addFlight(FlightDto flightDto) {
+    public void createFlight(FlightDto flightDto) {
         Flight flight = new Flight();
         flight.setFlightStatus("PENDING");
         flight.setAirCompanyId(flightDto.getAirCompanyId());
@@ -39,16 +40,6 @@ public class FlightService {
         flight.setDelayStartedAt(flightDto.getDelayStartedAt());
         flight.setCreatedAt(flightDto.getCreatedAt());
         flightRepository.save(flight);
-    }
-
-    public void updateFlight(Flight flight) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        Transaction transaction = null;
-        transaction = session.beginTransaction();
-        session.update(flight);
-        transaction.commit();
-        session.close();
     }
 
     public String getStatus(String status) {
@@ -88,13 +79,13 @@ public class FlightService {
         return result;
     }
 
-    public List<Flight> getCompletedWhichArrivedLate() {
+    public List<Flight> getCompleteFlightWhichLate() {
         List<Flight> flights = flightRepository.findFlightsByFlightStatus("COMPLETED");
         List<Flight> result = new ArrayList<>();
         for(Flight flight : flights) {
             Date startTime = timeManager.getDateFromString(flight.getCreatedAt());
             Date endTime = timeManager.getDateFromString(flight.getEndedAt());
-            int timeSpendToFlight = (int) timeManager.getTimeBeetwenStartAndEndFlight(startTime, endTime);
+            int timeSpendToFlight = timeManager.getTimeBeetwenStartAndEndFlight(startTime, endTime);
             if(flight.getEstimatedFlightTime() < timeSpendToFlight){
                 result.add(flight);
             }
@@ -103,10 +94,12 @@ public class FlightService {
     }
 
     public void changeStatusCodeAndSetSomeTimeInfo(int flightId, String newStatusCode, String date) {
-        Flight flight = new Flight();
-        if(flightRepository.findFlightByID(flightId) != null) {
-            flight = flightRepository.findFlightByID(flightId);
-        }
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Flight flight = session.get(Flight.class, flightId);
+        transaction.commit();
+        session.close();
 
         switch (getStatus(newStatusCode)) {
             case("DELAYED"):
@@ -124,6 +117,13 @@ public class FlightService {
         }
         updateFlight(flight);
     }
+
+    public void updateFlight(Flight flight) {
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(flight);
+        transaction.commit();
+        session.close();
+    }
 }
-
-

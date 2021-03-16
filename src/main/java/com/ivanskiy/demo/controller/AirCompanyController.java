@@ -7,26 +7,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("company")
+
 public class AirCompanyController {
 
-    AirCompanyService airCompanyService;
+    private AirCompanyService airCompanyService;
 
     public AirCompanyController(AirCompanyService airCompanyService) {
         this.airCompanyService = airCompanyService;
     }
 
-    @PostMapping("/add")
-    public void addCompany(@RequestBody AirCompanyDto airCompanyDto) {
-        airCompanyService.addCompany(airCompanyDto);
+    @PostMapping("create")
+    public void createCompany(@RequestBody AirCompanyDto airCompanyDto) {
+        airCompanyService.createCompany(airCompanyDto);
     }
 
-    @GetMapping("/getById/{id}")
+    @GetMapping("getById/{id}")
     public AirCompany getCompanyById(@PathVariable int id) {
         return airCompanyService.getCompanyById(id);
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("getAll")
     @ResponseBody
     public List<AirCompany> getAllCompanies() {
         return airCompanyService.getAll();
@@ -37,7 +38,7 @@ public class AirCompanyController {
         airCompanyService.updateAirCompany(airCompanyDto);
     }
 
-    @DeleteMapping("/deleteById/{id}")
+    @DeleteMapping("deleteById/{id}")
     public void deleteCompanyById(@PathVariable("id") Integer id) {
         airCompanyService.deleteById(id);
     }

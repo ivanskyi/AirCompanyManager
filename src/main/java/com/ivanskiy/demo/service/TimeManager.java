@@ -7,6 +7,7 @@ import java.util.Date;
 
 @Service
 public class TimeManager {
+
     private final SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public Date getDateFromString(String dateInString) {
@@ -30,5 +31,9 @@ public class TimeManager {
 
     public int getMinuteFromMillisecond(long millisecond) {
         return (int) ((millisecond / 1000) / 60);
+    }
+
+    public String getCurrentTimeinString() {
+        return timeFormat.format(new Date().getTime());
     }
 }

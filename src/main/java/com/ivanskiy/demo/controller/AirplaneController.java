@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("airplane")
 public class AirplaneController {
 
-    AirplaneService airplaneService;
+    private final AirplaneService airplaneService;
 
     public AirplaneController(AirplaneService airplaneService) {
         this.airplaneService = airplaneService;
     }
 
-    @PostMapping("/add")
-    public void addComany(@RequestBody AirplaneDto airplaneDto) {
-        airplaneService.addAirplane(airplaneDto);
+    @PostMapping("create")
+    public void createComany(@RequestBody AirplaneDto airplaneDto) {
+        airplaneService.createAirplane(airplaneDto);
     }
 
-    @PostMapping("/changeOwner/{airplaneName}/{companyName}")
-    public void changeOwner(@PathVariable(name="airplaneName")
-                                        String airplaneName, @PathVariable(name="companyName") String companyName) {
-        airplaneService.changeOwner( airplaneName, companyName);
+    @PostMapping("changeOwner/{airplaneId}/{companyNewOwnerId}")
+    public void changeOwner(@PathVariable(name = "airplaneId") Integer airplaneId,
+                            @PathVariable(name = "companyNewOwnerId") Integer companyNewOwnerId) {
+        airplaneService.changeOwner(airplaneId, companyNewOwnerId);
     }
 }
