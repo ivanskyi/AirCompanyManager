@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AirCompanyController {
 
-    private AirCompanyService airCompanyService;
+    private final AirCompanyService airCompanyService;
 
     public AirCompanyController(AirCompanyService airCompanyService) {
         this.airCompanyService = airCompanyService;

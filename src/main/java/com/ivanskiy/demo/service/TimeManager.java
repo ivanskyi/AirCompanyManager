@@ -20,10 +20,6 @@ public class TimeManager {
         return date;
     }
 
-    public String getStringFromDate(Date date) {
-        return timeFormat.format(date);
-    }
-
     public int getTimeBeetwenStartAndEndFlight(Date startDate, Date endDate) {
         long timePeriod = endDate.getTime() - startDate.getTime();
         return getMinuteFromMillisecond((timePeriod));

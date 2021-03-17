@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -43,13 +44,11 @@ public class FlightService {
     }
 
     public String getStatus(String status) {
-        String realStatus = "PENDING";
-        for(FlightStatusCode flightStatusCode : FlightStatusCode.values()) {
-            if(status.equalsIgnoreCase(flightStatusCode.toString())) {
-                realStatus = flightStatusCode.toString();
-            }
-        }
-        return realStatus;
+        FlightStatusCode statusCode = Arrays.asList(FlightStatusCode.values()).stream()
+                .filter(a -> a.toString().equals(status.toUpperCase()))
+                .findFirst()
+                .orElse(FlightStatusCode.PENDING);
+        return statusCode.toString();
     }
 
     public List<Flight> getAllFlightByStatusCodeAndCompany(String status, String companyName) {

@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AirCompanyRepository extends JpaRepository<AirCompany, Integer> {
     AirCompany getAirCompanyByName(String name);
-    void deleteByID(int id);
 }
