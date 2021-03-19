@@ -1,35 +1,14 @@
 package com.ivanskiy.demo.service;
 
-import org.springframework.stereotype.Service;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Service
-public class TimeManager {
+public interface TimeManager {
 
-    private final SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Date getDateFromString(String dateInString);
 
-    public Date getDateFromString(String dateInString) {
-        Date date = null;
-        try {
-            date = timeFormat.parse(dateInString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return date;
-    }
+    int getTimeBeetwenStartAndEndFlight(Date startDate, Date endDate);
 
-    public int getTimeBeetwenStartAndEndFlight(Date startDate, Date endDate) {
-        long timePeriod = endDate.getTime() - startDate.getTime();
-        return getMinuteFromMillisecond((timePeriod));
-    }
+    int getMinuteFromMillisecond(long millisecond);
 
-    public int getMinuteFromMillisecond(long millisecond) {
-        return (int) ((millisecond / 1000) / 60);
-    }
-
-    public String getCurrentTimeinString() {
-        return timeFormat.format(new Date().getTime());
-    }
+    String getCurrentTimeinString();
 }

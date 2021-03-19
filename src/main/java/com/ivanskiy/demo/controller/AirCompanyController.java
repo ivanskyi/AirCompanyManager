@@ -2,7 +2,7 @@ package com.ivanskiy.demo.controller;
 
 import com.ivanskiy.demo.domain.AirCompany;
 import com.ivanskiy.demo.dto.AirCompanyDto;
-import com.ivanskiy.demo.service.AirCompanyService;
+import com.ivanskiy.demo.service.AirCompanyServiceImpl;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -11,35 +11,35 @@ import java.util.List;
 
 public class AirCompanyController {
 
-    private final AirCompanyService airCompanyService;
+    private final AirCompanyServiceImpl airCompanyServiceImpl;
 
-    public AirCompanyController(AirCompanyService airCompanyService) {
-        this.airCompanyService = airCompanyService;
+    public AirCompanyController(AirCompanyServiceImpl airCompanyServiceImpl) {
+        this.airCompanyServiceImpl = airCompanyServiceImpl;
     }
 
     @PostMapping("create")
     public void createCompany(@RequestBody AirCompanyDto airCompanyDto) {
-        airCompanyService.createCompany(airCompanyDto);
+        airCompanyServiceImpl.createCompany(airCompanyDto);
     }
 
     @GetMapping("getById/{id}")
     public AirCompany getCompanyById(@PathVariable int id) {
-        return airCompanyService.getCompanyById(id);
+        return airCompanyServiceImpl.getCompanyById(id);
     }
 
     @GetMapping("getAll")
     @ResponseBody
     public List<AirCompany> getAllCompanies() {
-        return airCompanyService.getAll();
+        return airCompanyServiceImpl.getAll();
     }
 
     @PostMapping("update")
     public void getCompanyById(@RequestBody AirCompanyDto airCompanyDto) {
-        airCompanyService.updateAirCompany(airCompanyDto);
+        airCompanyServiceImpl.updateAirCompany(airCompanyDto);
     }
 
     @DeleteMapping("deleteById/{id}")
     public void deleteCompanyById(@PathVariable("id") Integer id) {
-        airCompanyService.deleteById(id);
+        airCompanyServiceImpl.deleteById(id);
     }
 }
