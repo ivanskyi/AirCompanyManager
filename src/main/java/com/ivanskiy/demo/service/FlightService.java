@@ -9,10 +9,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+
+import java.util.*;
 
 @Service
 public class FlightService {
@@ -44,7 +42,7 @@ public class FlightService {
     }
 
     public String getStatus(String status) {
-        FlightStatusCode statusCode = Arrays.asList(FlightStatusCode.values()).stream()
+        FlightStatusCode statusCode = Arrays.stream(FlightStatusCode.values())
                 .filter(a -> a.toString().equals(status.toUpperCase()))
                 .findFirst()
                 .orElse(FlightStatusCode.PENDING);
@@ -78,7 +76,7 @@ public class FlightService {
         return result;
     }
 
-    public List<Flight> getCompleteFlightWhichLate() {
+    public List<Flight> getWhoLate() {
         List<Flight> flights = flightRepository.findFlightsByFlightStatus("COMPLETED");
         List<Flight> result = new ArrayList<>();
         for(Flight flight : flights) {

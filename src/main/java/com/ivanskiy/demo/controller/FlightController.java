@@ -33,14 +33,15 @@ public class FlightController {
         return flightService.getAllFlightsThatFlyingLastsOver24Hours();
     }
 
-    @GetMapping("completeWhichLate")
+    @GetMapping("getWhoLate")
     @ResponseBody
     public List<Flight> getCompleteFlightWhichLate() {
-        return flightService.getCompleteFlightWhichLate();
+        return flightService.getWhoLate();
     }
 
-    @GetMapping("changeStatusCode")
+    @PostMapping("changeStatusCode")
     public void changeStatusCodeAndSetSomeTimeInfo(int flightId,String newStatusCode, String date) {
+        System.out.println(flightId + "_" + newStatusCode + "_" + date);
         flightService.changeStatusCodeAndSetSomeTimeInfo(flightId, newStatusCode, date);
     }
 }

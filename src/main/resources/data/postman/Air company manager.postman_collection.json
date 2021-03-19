@@ -23,15 +23,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8075/company/create",
-							"protocol": "http",
+							"raw": "{{host}}/company/create",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"company",
 								"create"
@@ -55,19 +50,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8075/company/deleteById/11",
-							"protocol": "http",
+							"raw": "{{host}}/company/deleteById/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"company",
 								"deleteById",
-								"11"
+								"1"
 							]
 						}
 					},
@@ -79,15 +69,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8075/company/getById/11",
-							"protocol": "http",
+							"raw": "{{host}}/company/getById/11",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"company",
 								"getById",
@@ -112,15 +97,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8075/company/update",
-							"protocol": "http",
+							"raw": "{{host}}/company/update",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"company",
 								"update"
@@ -135,15 +115,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8075/company/getAll",
-							"protocol": "http",
+							"raw": "{{host}}/company/getAll",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"company",
 								"getAll"
@@ -192,15 +167,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8075/airplane/create",
-							"protocol": "http",
+							"raw": "{{host}}/airplane/create",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"airplane",
 								"create"
@@ -215,15 +185,10 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8075/airplane/changeOwner/1/3",
-							"protocol": "http",
+							"raw": "{{host}}/airplane/changeOwner/1/3",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"airplane",
 								"changeOwner",
@@ -275,15 +240,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8075/flight/create",
-							"protocol": "http",
+							"raw": "{{host}}/flight/create",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"flight",
 								"create"
@@ -298,15 +258,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8075/flight/getAllByStatusCodeAndCompanyName?status=active&companyName=Emirates",
-							"protocol": "http",
+							"raw": "{{host}}/flight/getAllByStatusCodeAndCompanyName?status=active&companyName=Emirates",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"flight",
 								"getAllByStatusCodeAndCompanyName"
@@ -331,15 +286,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8075/flight/getAllThatFlyingOver24Hours",
-							"protocol": "http",
+							"raw": "{{host}}/flight/getAllThatFlyingOver24Hours",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"flight",
 								"getAllThatFlyingOver24Hours"
@@ -354,18 +304,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8075/flight/activeWhichLate",
-							"protocol": "http",
+							"raw": "{{host}}/flight/getWhoLate",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"flight",
-								"activeWhichLate"
+								"getWhoLate"
 							]
 						}
 					},
@@ -373,15 +318,12 @@
 				},
 				{
 					"name": "Change flight status ",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"flightId\": 35,\n    \"newStatusCode\": \"ACTIVE\",\n     \"date\": \"2021-03-15 13:00:00\"\n}",
+							"raw": "{\n    \"flightId\": 35,\n    \"newStatusCode\": \"ACTIVE\",\n    \"date\": \"2021-03-15 13:00:00\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -389,32 +331,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8075/flight/changeStatusCode?flightId=1&newStatusCode=ACTIVE&date=2021-03-15 13:00:00",
-							"protocol": "http",
+							"raw": "{{host}}/flight/changeStatusCode",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{host}}"
 							],
-							"port": "8075",
 							"path": [
 								"flight",
 								"changeStatusCode"
-							],
-							"query": [
-								{
-									"key": "flightId",
-									"value": "1"
-								},
-								{
-									"key": "newStatusCode",
-									"value": "ACTIVE"
-								},
-								{
-									"key": "date",
-									"value": "2021-03-15 13:00:00"
-								}
 							]
 						}
 					},
