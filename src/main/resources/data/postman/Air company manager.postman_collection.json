@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bf163f16-5005-4d19-8c4f-a04079dc90f5",
+		"_postman_id": "bcb5cc79-90fa-416a-a375-1dc9aa8ae6b9",
 		"name": "Air company manager",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Polan Airlines\",\n    \"companyType\": \"private\",\n    \"foundedAt\": \"Petrom\"\n}\n\n\n\n",
+							"raw": "{\n    \"name\": \"Polan Airlines\",\n    \"companyType\": \"private\",\n    \"foundedAt\": \"Petro Inc.\"\n}\n\n\n\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -89,7 +89,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"name\": \"Moldova Airlines\",\n    \"companyType\": \"private\"\n}\n\n",
+							"raw": "{\n    \"id\": 5,\n    \"name\": \"Moldova Airlines\",\n    \"companyType\": \"private\"\n}\n\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -184,16 +184,24 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"airplaneId\": 1,\n    \"companyNewOwnerId\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{host}}/airplane/changeOwner/1/3",
+							"raw": "{{host}}/airplane/changeOwner/",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"airplane",
 								"changeOwner",
-								"1",
-								"3"
+								""
 							]
 						},
 						"description": "/airplaneName/newCompanyOwnerName"
@@ -323,7 +331,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"flightId\": 35,\n    \"newStatusCode\": \"ACTIVE\",\n    \"date\": \"2021-03-15 13:00:00\"\n}",
+							"raw": "{\n    \"flightId\": 2,\n    \"newStatusCode\": \"DELAYED\",\n    \"date\": \"2019-03-15 13:00:00\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"

@@ -4,6 +4,7 @@ import com.ivanskiy.demo.domain.Flight;
 import com.ivanskiy.demo.dto.FlightDto;
 import com.ivanskiy.demo.entity.FlightStatusCode;
 import com.ivanskiy.demo.repository.FlightRepository;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -112,6 +113,7 @@ public class FlightService {
                 flight.setFlightStatus("COMPLETED");
                 break;
         }
+
         updateFlight(flight);
     }
 

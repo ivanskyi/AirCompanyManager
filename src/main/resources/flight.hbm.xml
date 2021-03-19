@@ -15,7 +15,7 @@
         <property name="airCompanyId" column="air_company_id" type="int"/>
         <property name="airplaneId" column="airplane_id" type="int"/>
         <property name="departureCountry" column="departure_country" type="string"/>
-        <property name="destinationCountry" column="destination_country" type="int"/>
+        <property name="destinationCountry" column="destination_country" type="string"/>
         <property name="distance" column="distance" type="int"/>
         <property name="estimatedFlightTime" column="estimated_flight_time" type="int"/>
         <property name="endedAt" column="ended_at" type="string"/>

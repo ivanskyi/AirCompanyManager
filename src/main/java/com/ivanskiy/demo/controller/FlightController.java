@@ -1,5 +1,6 @@
 package com.ivanskiy.demo.controller;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.ivanskiy.demo.domain.Flight;
 import com.ivanskiy.demo.dto.FlightDto;
 import com.ivanskiy.demo.service.FlightService;
@@ -16,7 +17,7 @@ public class FlightController {
         this.flightService = flightService;
     }
 
-    @PostMapping("/create")
+    @PostMapping("create")
     public void createComany(@RequestBody FlightDto flightDto) {
         flightService.createFlight(flightDto);
     }
@@ -40,8 +41,8 @@ public class FlightController {
     }
 
     @PostMapping("changeStatusCode")
-    public void changeStatusCodeAndSetSomeTimeInfo(int flightId,String newStatusCode, String date) {
-        System.out.println(flightId + "_" + newStatusCode + "_" + date);
-        flightService.changeStatusCodeAndSetSomeTimeInfo(flightId, newStatusCode, date);
+    public void changeStatusCodeAndSetSomeTimeInfo(@RequestBody ObjectNode jsonNodes) {
+        flightService.changeStatusCodeAndSetSomeTimeInfo(jsonNodes.get("flightId").asInt(),
+                jsonNodes.get("newStatusCode").asText(), jsonNodes.get("date").asText());
     }
 }

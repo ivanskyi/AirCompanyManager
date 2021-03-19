@@ -1,5 +1,6 @@
 package com.ivanskiy.demo.controller;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.ivanskiy.demo.dto.AirplaneDto;
 import com.ivanskiy.demo.service.AirplaneService;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +20,9 @@ public class AirplaneController {
         airplaneService.createAirplane(airplaneDto);
     }
 
-    @PostMapping("changeOwner/{airplaneId}/{companyNewOwnerId}")
-    public void changeOwner(@PathVariable(name = "airplaneId") Integer airplaneId,
-                            @PathVariable(name = "companyNewOwnerId") Integer companyNewOwnerId) {
-        airplaneService.changeOwner(airplaneId, companyNewOwnerId);
+    @PostMapping("changeOwner")
+    public void changeOwner(@RequestBody ObjectNode objectNode) {
+        airplaneService.changeOwner(objectNode.get("airplaneId").asInt(),
+                objectNode.get("companyNewOwnerId").asInt());
     }
 }
