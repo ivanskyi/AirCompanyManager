@@ -95,6 +95,7 @@ Request type: GET
 Request param: non
 ```
 
+
 5. Operations that allow creating airplane.
 - To do it use the address:
 ```
